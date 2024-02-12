@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/login.css')}}"> {{ super() }}
+
+
+<div id="login-container">
+    <div class="anouncement">
+        <div class="text-wrap">
+            <h1>
+                Регистрация в интернет-магазине дает вам:
+            </h1>
+            <ul>
+                <li>Скидку при первом заказе</li>
+                <li>Накопительную скидку</li>
+                <li>Возможность участвовать в промоакциях</li>
+                <li>Удобство оформления заказов</li>
+                <li>Своевременное информирование о новых поступлениях</li>
+            </ul>
+            <p>
+                Вы можете купить товар без регистрации. В этом случае вам нужно будет выбрать точку самовыоза и дождаться, пока на экране появится код получения товара
+            </p>
+        </div>
+    </div>
+    <div class="wrapper">
+        <form class="phone-form" action="">
+            <label class="phone-label" for="phone">Ваш номер телефона:</label>
+            <input class="phone-input" type="tel" id="phone" name="phone" placeholder="8-(000) 000-00-00">
+            <button class="phone-button" type="button" id="phone-button">Отправить</button>
+        </form>
+        <form class="email-form" action="">
+            <label class="email-label" for="email">Ваш email:</label>
+            <input class="email-input" type="text" id="email" name="email" placeholder="email@email.com">
+            <button class="email-button" type="button" id="email-button">записать email</button>
+        </form>
+        <div class="notifications">
+            <p>* хочу получать извещения о:</p>
+            <ul>
+                <li><input class="prefs" type="checkbox" id="sales">&nbsp; распродажах и специальных акциях</li>
+                <li><input class="prefs" type="checkbox" id="collections">&nbsp; поступлении нового товара.</li>
+                <li><input class="prefs" type="checkbox" id="receipts">&nbsp; Отправлять чеки на email</li>
+            </ul>
+        </div>
+        <button class="email-button" type="button" id="prefs-button">записать изменения</button>
+    </div>
+</div>
+
+<div id="digitModal">
+    <h1>Введите код из СМС:</h1>
+    <form>
+        <input id="di-1" class="digit-input" type="number" maxlength="1" />
+        <input id="di-2" class="digit-input" type="number" maxlength="1" />
+        <input id="di-3" class="digit-input" type="number" maxlength="1" />
+        <input id="di-4" class="digit-input" type="number" maxlength="1" />
+    </form>
+    <button id="closeButton" style="position: absolute; top: 0; right: 0;">X</button>
+</div>
+
+
+
+
+
+
+<script src="/static/js/login.js"></script>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %} {% block content %} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/basket.css')}}"> {{ super() }}
+
+<div class="basket-content">
+    {% if basket_content %}
+    <h1>Корзина: {{basket_content}}</h1>
+    {% else %} {% for d in data %}
+    <div class="card">
+        <div class="product-image">
+            <a class="thumbnails" href="/product/{{d.модель}}"><img src="/imagesDir/{{ d.модель }}/800/{{d.photo}}"
+                    alt="{{d.марка}}">
+            </a>
+            <div class="max">В наличии: <span class="qty-limit">{{d.наличие}}</span></div>
+        </div>
+        <div class="basement">
+            <div class="brand">{{d.марка}}</div>
+            <div class="info">
+                <div class="style">
+                    <div class="left">модель:</div>
+                    <div name="styleid" class="right">{{d.модель}}</div>
+                </div>
+                <div class="style">
+                    <div class="left">{{d.категория}}:</div>
+                    <div class="right">{{d.артикул}}</div>
+                </div>
+                <div class="style">
+                    <div class="left">Цвет:</div>
+                    <div name="color" class="right">{{d.цвет}}</div>
+                </div>
+                <div class="style">
+                    <div class="left">Размер:</div>
+                    <div name="size" class="right">{{d.размер}}</div>
+                </div>
+
+                {% if d.скидка !=0 %}
+                <div class="style">
+                    <div class="left">СКИДКА:</div>
+                    <div class="right">-{{'{:.0%}'.format(d.скидка)}}</div>
+                </div>
+                {% endif %} {% if d.промо !=0 %}
+                <div class="style">
+                    <div class="left">ПРОМО:</div>
+                    <div class="right">-{{'{:.0%}'.format(d.промо)}}</div>
+                </div>
+                {% endif %}
+                <div class="counter-wrap">
+                    <div class="counter">
+                        <div class="changer" name="minus">-</div>
+                        <div name="qty" class="count">{{d['в корзине']}}</div>
+                        <div class="changer" name="plus"> +</div>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="basket-checkbox">
+                        <!-- <div>&#9744;</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="price">
+                <div class="retail-price">
+                    {% if d.скидка + d.промо != 0 %}
+                    <span style="color: red; text-decoration: line-through;">{{'{:,}'.format(d.цена|int)}} руб </span>
+                    {% endif %}
+                </div>
+                <div class="final-price">{{'{:,}'.format((d.цена * (1-d.промо)* (1-d.скидка))|int)}} руб</div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="totals-wrap">
+        <div class="totals">
+            <div class="pieces">
+                Выбрано единиц: &nbsp;<span id="pieces">0</span>
+            </div>
+            <div class="total">
+                Всего к оплате: &nbsp; <span id="total">0</span> руб.
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="call-to-action">
+    <!-- <div class="heading">Доставка</div> -->
+    <div class="del-addr">
+        <div class="address-warning">
+            адрес доставки не выбран
+        </div>
+        <div id="addr" name="addr" class="addr">
+            <div class="custom-select">
+                <select class="delivery" name="delivery" id="delivery">
+                    <option value="pickup-18">самовывоз: ТК "Дрим Хаус, магазин "ФАНФАН""</option>
+                    <option value="pickup-25">самовывоз: ТК "Крокус Сити Молл", магазин "ФАНФАН"</option>
+                    <option value="pickup-27">самовывоз: ТК "Крокус Сити Молл", магазин "WEEKEND"</option>
+                    {% if addrData %}
+                    {% for a in addrData %}
+                    <option value="{{a.spotid}}">{{a.address_string}}</option>
+                    {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button id="delete-btn" class="btn del">удалить все</button>
+        <button id="buy-btn" class="btn buy">купить все</button>
+    </div>
+</div>
+
+<script>
+    var content = '{{data}}'
+</script>
+<script src="/static/js/basket.js"></script>
+
+
+{% endblock %}

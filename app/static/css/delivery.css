@@ -1,0 +1,63 @@
+body {
+  padding-top: 10em;
+  padding-bottom: 1em;
+}
+
+.product-delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+  margin: 0em 1em;
+  padding: 1em 1em;
+  background-color: #fff;
+  border-radius: 8px;
+  border: solid 1px #949494;
+  font-family: "Playfair Display";
+}
+
+.lbl {
+  font-family: "Arial";
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.form {
+  font-size: 1.2rem;
+  padding: 1em;
+  background-color: rgb(216, 216, 216);
+  border-radius: 6px;
+}
+
+.form-delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+form h1 {
+  margin: 0 0 0.5em 0;
+}
+
+.icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.delivery-image {
+  width: 30%;
+}
+
+.btn {
+  font-size: 1.5rem;
+  margin: 0 auto;
+  color: white;
+  font-weight: bold;
+  padding: 0.5em 0 0.7em 0;
+  background: rgb(18, 204, 18);
+  width: 80%;
+  border-radius: 18px;
+  border: none;
+}

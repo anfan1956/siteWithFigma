@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/product.css')}}"> {{ super() }}
+
+
+<div class="product-wrapper">
+    <div class="product-card">
+        <div class="product">
+            <div class="product-header">
+                <div class="product-cat">{{data.category}}</div>
+                <div class="product-brand">{{data.brand}}</div>
+            </div>
+            <!-- <a href="#"><img class="main-image" src="/static/images/_M3Q9518.jpg" alt=""></a> -->
+            <a href="#"><img id="mainImage" class="main-image" src="/imagesDir/{{ data.styleid }}/800/{{data.photo}}"
+                    alt="{{data.brand}}"></a>
+        </div>
+    </div>
+
+
+    {% if data.promo != 0 %}
+    <div class="style-promo">
+        промо {{"{:,.0%}".format(data.promo)}}
+    </div>
+    {% endif %} {% if data.discount != 0 %}
+    <div class="style-discount">
+        скидка: {{"{:,.0%}".format(data.discount)}}
+    </div>
+    {% endif %}
+
+    <div class="product-icons">
+        {% for photo in data.photos.split(",") %}
+        <a class="icons"><img class="image-icons" src="/imagesDir/{{ data.styleid }}/800/{{photo}}"
+                alt="{{data.brand}}"></a>
+        {% endfor %}
+    </div>
+    <div class="style-info">
+        <div class="style-details">
+            <div class="style-atrs">model: {{data.styleid}}</div>
+            <div class="style-atrs">артикул: {{data.article}}</div>
+        </div>
+        <div class="style-details">
+            <div class="style-atrs">состав: {{data.composition}}</div>
+            <div class="style-atrs">для: {{data.пол}}</div>
+        </div>
+        <div class="style-details">
+            <div class="style-atrs">{% if data.discount!= 0 or data.promo !=0 %}Цена до скидки: <span
+                    class="red crossed">{{"{:,}".format(data.price|int)}} {%
+                    endif %}</span></div>
+            <div class="style-atrs">Цена: <span style="font-weight: bold; font-size: 1.4rem;">
+                    {{"{:,}".format((data.price*(1-data.discount)*(1-data.promo))|int)}} руб.</span></div>
+        </div>
+    </div>
+    <div class="details"></div>
+</div>
+<div class="sizes-table">
+    <div class="colors">
+    </div>
+    <div class="avail">
+        <div class="sizes">
+        </div>
+    </div>
+</div>
+<div class="action-section">
+    <input name="size-selection" id="size-selection" placeholder="выберите цвет и размер" disabled>
+    <button class="cta" type="button">добавить в корзину</button>
+    <button class="cta green" type="button">купить в одни клик</button>
+
+</div>
+<script>
+    data = '{{data}}'
+</script>
+<script src="/static/js/product.js"></script>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/catalog.css')}}"> {{ super() }}
+
+
+<div class="cat-wrapper">
+    <div class="scrolling-header">
+        <button class="category" type="button">some text</button>
+        <button class="category" type="button">some long text</button>
+        <button class="category" type="button">some text</button>
+        <button class="category" type="button">some long text</button>
+        <button class="category" type="button">some text</button>
+        <button class="category" type="button">some long text</button>
+        <button class="category" type="button">some text</button>
+        <button class="category" type="button">some text</button>
+        <button class="category" type="button">some text</button>
+        <button class="category" type="button">some text</button>
+        <button class="category" type="button">some text</button>
+    </div>
+</div>
+<div id="loading">Загрузка...</div>
+
+
+<div class="white-wrapper">
+    <div id="ticker"></div>
+</div>
+
+
+<div class="products">
+    {% for s in styles %}
+    <div class="product">
+        <a href="/product/{{s.модель}}"><img src="/imagesDir/{{s.модель}}/540/{{s.фото}}" alt=""></a>
+        <div class="product-info">
+            {% if s.промо_скидка != 0 %}
+            <div class="promo"><span class="purple">промо: {{ "{:,.0%}".format(s.промо_скидка) }}</span> </div>
+            {% endif %} {%if s.скидка != 0 %}
+            <div class="discount"><span class="red">
+                    скидка: {{ "{:,.0%}".format(s.скидка) }}
+                </span></div>
+            {% endif %}
+            <div class="brand">{{s.бренд}}</div>
+            <div class="gender-catalog">{{s.пол}}</div>
+            <div class="product-details">
+                <div class="all-data categories">{{s.категория}}</div>
+                <div class="all-data">модель: {{s.модель}}</div>
+            </div>
+            <div class="price-info">
+
+                <div class="start-price"><span class="red crossed">
+
+                        {% if s.скидка != 0 or s.промо_скидка != 0 %} {{ "{:,}".format(s.цена) }} {% endif %}
+                    </span>
+                </div>
+                <div class="final-price">цена: {{ "{:,}".format((s.цена * (1-s.скидка)*(1 - s.промо_скидка))|int) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script src="/static/js/catalog.js"></script>
+{% endblock %}

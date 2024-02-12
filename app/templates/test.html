@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" maxlength="1" class="digit-input">
+    <input type="text" maxlength="1" class="digit-input">
+    <input type="text" maxlength="1" class="digit-input">
+    <input type="text" maxlength="1" class="digit-input">
+</body>
+<style>
+    #digitModal {
+        border: 1px red solid;
+        padding: 1em;
+        border-radius: 5px;
+    }
+
+    form {
+        display: flex;
+        gap: 1em;
+    }
+
+    .digit-input {
+        width: 1em;
+        text-align: center;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // When a digit is entered, move focus to next input box
+        $('.digit-input').keyup(function () {
+            $(this).next('.digit-input').focus();
+
+        });
+    });
+</script>
+
+</html>

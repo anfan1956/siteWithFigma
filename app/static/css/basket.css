@@ -1,0 +1,158 @@
+.right {
+    /* background-color: red; */
+    overflow: hidden;
+}
+
+.basket-checkbox {
+    scale: 0.8;
+}
+
+.count {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.style {
+    font-size: 1.2rem;
+    display: flex;
+    gap: 1em;
+    justify-content: left;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    text-transform: capitalize;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    border-bottom: 1px solid black;
+}
+
+.counter-wrap {
+    margin: 0.5em 1em;
+    display: flex;
+    gap: 2em;
+    justify-content: right;
+    align-items: center;
+}
+
+.counter {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.changer {
+    padding: 0.5em;
+    background-color: var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.totals-wrap,
+.call-to-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--dark-border);
+    gap: 1.5em;
+    margin: 1em 1rem;
+    margin-bottom: 2rem;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.buttons {
+    margin: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.btn {
+    /* margin: 0 2rem ; */
+    font-size: 1.1em;
+    font-weight: 500;
+    width: 100%;
+    padding: 0.4em 2em;
+    border: none;
+    border-radius: 2em;
+    color: white;
+}
+
+.del {
+    background-color: var(--dark-background);
+}
+
+.buy {
+    background-color: var(--green-button);
+}
+
+.delivery {
+    font-size: 1.2rem;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    gap: 1em;
+    margin: 2em 1em 2em 1em;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: white;
+    border: 1px solid var(--dark-border);
+    border-radius: 12px;
+}
+
+.product-image {
+    box-shadow: 2px 2px 2px 2px var(--border);
+    border-radius: 12px;
+    position: relative;
+}
+
+.thumbnails img {
+    margin: 0.5em 1em;
+    height: 138px;
+    width: 92px;
+    border-radius: 6px;
+}
+
+.basement {
+    display: flex;
+    gap: 0.5em;
+    padding: 1em;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid var(--border); */
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.max {
+    font-size: 1.2rem;
+    margin: 0.5em 1em;
+    padding: 0.2em 0.5em;
+    left: 0;
+    right: 0;
+    color: white;
+    background: rgb(119, 136, 153, 0.7);
+    position: absolute;
+    bottom: 0.5em;
+    text-align: center;
+    border-radius: 8px;
+}

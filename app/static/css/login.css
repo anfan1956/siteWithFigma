@@ -1,0 +1,166 @@
+.anouncement {
+    font-size: 1.2rem;
+    margin: 0 auto;
+    /* margin-top: 1em; */
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 0px 1em;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--dark-background);
+    background: var(--white, #fff);
+}
+
+.anouncement h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+}
+
+.anouncement ul {
+    margin: 0px;
+    padding-bottom: 0.5em;
+}
+
+.anouncement p {
+    display: flex;
+    margin: 0;
+    padding-bottom: 1em;
+}
+
+.text-wrap {
+    width: 278px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 8em;
+    display: flex;
+    flex-direction: column;
+    gap: 0em;
+    width: 320px;
+    padding: 9px 0px 20px 0px;
+    justify-content: baseline;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: 1px solid var(--dark-background);
+    background: var(--border, #d9d9d9);
+}
+
+.phone-form,
+.email-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 0em;
+    width: 70%;
+}
+
+.phone-button,
+.email-button {
+    background-color: var(--green-button);
+    color: white;
+    width: 100%;
+    margin: 0.5em auto;
+    padding: 0.5em 2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 2px 2px 2px 2px rgba(100, 100, 100, 0.3);
+}
+
+.email-button {
+    background-color: var(--dark-border);
+}
+
+.phone-label,
+.email-label {
+    margin: 0em auto;
+    padding: 0;
+}
+
+#prefs-button {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
+label,
+input {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.phone-input,
+.email-input {
+    margin-top: 0;
+    padding: 0.2em;
+    text-align: center;
+}
+
+.email-input {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.notifications {
+    font-size: 1.6rem;
+}
+
+p {
+    margin: 0;
+}
+
+.notifications ul {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin: 0 auto;
+    gap: 0em;
+    font-size: 1.3rem;
+    list-style-type: none;
+}
+
+ul {
+    padding-top: 0.5em;
+    padding-left: 2em;
+}
+
+#digitModal {
+    position: fixed;
+    display: none;
+    /* display: flex; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    margin: 0 auto;
+    flex-direction: column;
+    width: fit-content;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    border: 1px solid var(--dark-background);
+    padding: 1em;
+    border-radius: 5px;
+}
+
+#digitModal h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    gap: 2em;
+    margin: 0 4em 2em 4em;
+}
+
+.digit-input {
+    width: 2em;
+    height: 2em;
+    text-align: center;
+}

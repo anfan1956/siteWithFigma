@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/about.css')}}"> {{ super() }}
+
+
+<div id="container">
+    <div class="wrapper">
+
+    </div>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=9d22a650-022e-4703-a603-a688a9b9c66b
+    " type="text/javascript">
+    </script>
+
+
+    <script src="/static/js/about.js"></script>
+    {% endblock %}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Playfair+Display:wght@400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100;1,200;1,300;1,400;1,600;1,700&family=Roboto+Condensed:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100;1,200;1,300;1,400;1,600;1,700&family=Roboto+Condensed:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/nav.css">
+    <title>{{title}}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/nav.js"></script>
+
+    {% endblock %}
+
+</head>
+
+<body>
+    {% block content -%} {%- block mainmenu -%}
+    <nav>
+        <div class="top-menu">
+            <a class="logo" href="/home"><img src="/static/images/ФАНФАН_WEEKEND.svg" alt="фанфан"></a>
+            <div class="call-back">
+                <div class="phone-icon"><img src="/static/images/phone-volume.svg" alt="фанфан phone"></div>
+                <div class="phone">
+                    <a href="tel:+74959027130">8-495-902-7130</a>
+                    <a href="#">Обратный звонок</a>
+                </div>
+            </div>
+            <div class="incognito">
+                <div class="incoginto-icon"><img src="/static/images/incognito.svg" alt="фанфан user"></div>
+                <div class="incognito-menu">
+                    <a href="/login">вход</a>
+                </div>
+            </div>
+            <div class="user">
+                <div class="user-icon"><img src="/static/images/user.svg" alt="фанфан user"></div>
+                <div class="user-menu">
+                    <a href="#">ваши данные</a>
+                    <a href="#">aдреса</a>
+                    <a href="#">история покупок</a>
+                    <a id="logout" href="#">выход</a>
+                </div>
+            </div>
+        </div>
+        <div class="stripe"> </div>
+        <div class="nav2">
+            <ul>
+                <div class="menu">
+                    <div id="female" class="gender">женщинам
+                        <div class="female-menu">
+                            <a href="/catalog?gender=female&p1=all">
+                                <div id="allFemale" class="all">без фильтров</div>
+                            </a>
+                            <div id="brands-female" class="dropdown">бренды
+                                <div class="brands-menu"></div>
+                            </div>
+                            <div id="categories-female" class="dropdown">категории
+                                <div class="categories-menu"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu">
+                    <div id="male" class="gender">мужчинам
+                        <div class="male-menu">
+                            <a href="/catalog?gender=male&p1=all">
+                                <div id="allMale" class="all">без фильтров</div>
+                            </a>
+                            <div id="brands-male" class="dropdown">бренды
+                                <div class="brands-menu"></div>
+                            </div>
+                            <div id="categories-male" class="dropdown">категории
+                                <div class="categories-menu"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <a href="/catalog?gender=male" class="menu">
+                    <li id="xmale" class="gender">мужчинам</li>
+                </a> -->
+                <div class="menu">
+                    <div id="promo" class="idpromo">промо
+                        <div class="promo-menu">
+                            <a href="/catalog?gender=female&p1=promo">женщинам</a>
+                            <a href="/catalog?gender=male&p1=promo">мужчинам</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="menu" href="/login">
+                    <li id="login">вход</li>
+                </a>
+            </ul>
+            <div class="baskets">
+                <a class="image menu" href="/basket">
+                    <img id="basket" src="/static/images/basket.svg" alt="фанфан basket">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="base-message">
+        <div class="message">
+        </div>
+        <div class="message-close">
+            <button id="yes" type="button" class="answers">Да</button>
+            <button id="no" type="button" class="answers">Нет</button>
+        </div>
+    </div>
+
+    {% endblock mainmenu %} {% endblock %}
+
+    <!-- this footer is not placed in any block, still is shown on the page -->
+    <div class="footer">
+        <main> &#9742; &nbsp; 8 (495) 902-7130
+            <span style="color:black;">&#9830; </span>&nbsp; &#x2709; info@fanan.store
+        </main>
+        <main>Copyright © 2023 All Rights Reserved</main>
+    </div>
+</body>
+
+</html>
