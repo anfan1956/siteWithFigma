@@ -1,3 +1,4 @@
 .idea
 images/
 main.py
+app/__pycache__/
