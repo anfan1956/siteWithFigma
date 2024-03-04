@@ -238,6 +238,7 @@ def phone():
             if sms_orig == code:
                 sql = f"set nocount on; declare @note varchar(max); exec web.promoAllStyles_p {phone_number}, @note output; select @note"
                 message = s(sql)
+                print(f'message: {message}')
                 if allow_sms:
                     sms(phone_number, message)
                 sql = f"select cust.customer_mail('{phone_number}')"
@@ -249,12 +250,13 @@ def phone():
                 # result = {'status': 'ok', 'email': q_result, 'sms_result': 'sms verified'}
                 for p in prefs:
                     result[p] = prefs[p]
-                # print(result)
-                promo = re.findall(r'\d{6}', message)[0]
+                print(result)
                 print(result, 'should be sms verified')
                 response = jsonify(result)
                 response.set_cookie("phone", phone_number, expires=dt)
-                response.set_cookie("promo", promo, expires=dt)
+                if message != "сейчас промоакций нет":
+                    promo = re.findall(r'\d{6}', message)[0]
+                    response.set_cookie("promo", promo, expires=dt)
             else:
                 response = {'status': 'error', 'message': 'неверный код'}
             return response

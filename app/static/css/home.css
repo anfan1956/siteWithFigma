@@ -1,29 +1,36 @@
 .welcome {
-  padding: 1rem 1rem 0 2rem;
+  padding: 0rem 1rem 0 2rem;
   font-family: Playfair Display;
   font-size: 2rem;
   font-weight: bold;
   background-color: white;
 }
+
+h1 {
+  font-size: 30px;
+  padding: 0em;
+  margin: 0em;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 0em;
+  text-align: center;
+}
+
 .welcome p {
   background-color: white;
   margin: 1rem;
   /* margin-bottom: 0; */
 }
-.welcome .second {
-  padding-top: 0;
-  margin-top: 0rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-}
-.first-carousel img {
-  width: 100%;
-}
+
 #carousel {
   position: relative;
   width: 100%;
   /*padding-bottom: 100%;  This makes the height match the width */
-  padding-bottom: 150%; /* This makes the height 3:2 of the width */
+  padding-bottom: 150%;
+  /* This makes the height 3:2 of the width */
   overflow: hidden;
   margin-bottom: 8em;
 }
@@ -35,14 +42,38 @@
   display: none;
 }
 
+/* .slide-2 {
+    width: 80%;
+    height: 80%;
+} */
+
+#image-container {
+  touch-action: none;
+  display: flex;
+  border: 1px solid var(--dark-border);
+  /* position: relative; */
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1em;
+  overscroll-behavior: none;
+}
+
+#image-container img {
+  display: flex;
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .carousel-wrapper {
-  padding: 1rem 3rem;
-  padding-bottom: 2rem;
+  padding: 0em 2em;
   background: white;
   /* border: 1px solid var(--dark-border); */
 }

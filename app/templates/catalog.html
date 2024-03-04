@@ -17,7 +17,8 @@
         <button class="category" type="button">some text</button>
     </div>
 </div>
-<div id="loading">Загрузка...</div>
+<!-- <div id="loading">Загрузка...</div> -->
+<div id="loading"></div>
 
 
 <div class="white-wrapper">
@@ -28,7 +29,7 @@
 <div class="products">
     {% for s in styles %}
     <div class="product">
-        <a href="/product/{{s.модель}}"><img src="/imagesDir/{{s.модель}}/540/{{s.фото}}" alt=""></a>
+        <a href="/product/{{s.модель}}"><img data-src="/imagesDir/{{s.модель}}/540/{{s.фото}}" class="lazy" alt=""></a>
         <div class="product-info">
             {% if s.промо_скидка != 0 %}
             <div class="promo"><span class="purple">промо: {{ "{:,.0%}".format(s.промо_скидка) }}</span> </div>
@@ -57,6 +58,38 @@
     </div>
     {% endfor %}
 </div>
+
+<!-- this one is added by ChatGPT-4 -->
+<!-- Adds a lazy load handler to images with the "lazy" class. Checks if the IntersectionObserver API is supported, and
+if so, uses it to only load images when they become visible in the viewport. Falls back to a less performant method if
+IntersectionObserver
+is not supported. -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+        if ("IntersectionObserver" in window) {
+            let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        let lazyImage = entry.target;
+                        lazyImage.src = lazyImage.dataset.src;
+                        lazyImage.classList.remove("lazy");
+                        lazyImageObserver.unobserve(lazyImage);
+                    }
+                });
+            });
+
+            lazyImages.forEach(function (lazyImage) {
+                lazyImageObserver.observe(lazyImage);
+            });
+        } else {
+            // Possibly fall back to a more compatible method here
+        }
+    });
+</script>
+
+
 
 <script src="/static/js/catalog.js"></script>
 {% endblock %}

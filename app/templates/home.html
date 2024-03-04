@@ -1,14 +1,10 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<link rel="stylesheet" href="{{url_for('static', filename='/css/home.css')}}">
-
-{{ super() }}
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='/css/home.css')}}"> {{ super() }}
 
 
 <div class="wrapper">
     <div class="welcome">
-        <div>Для Вас - из шоурумов Милана</div>
+        <h2>Одежда из шоурумов Милана</h2>
     </div>
     <div class="carousel-wrapper">
         <div id="carousel">
@@ -17,13 +13,23 @@
             {% endfor %}
             <!-- Add more slides to the hp-carousel folder as needed -->
         </div>
+        <div>
+            <h1>Мы продаем дорогие вещи</h1>
+            <h2>Вы можете купить их недорого</h2>
+        </div>
     </div>
 
 </div>
 
 
-<script>var images = '{{images}}'</script>
+
+
+
+
+<script>
+    var images = '{{images}}'
+</script>
 <script src="/static/js/home.js"></script>
-//
+
 
 {% endblock %}
